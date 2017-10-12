@@ -85,12 +85,25 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
         return sortedKeys[row]
     }
 
-    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 및 넘어가는 화면에 선택된 메뉴 넘겨주기 */
+    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 */
     @IBAction func buttonSearch() {
         let index = pickerStarMenu.selectedRow(inComponent: 0)
         let key:String = sortedKeys[index]
         
         labelStarDetailRecipe.text = starMenuDictionary[key]
+    }
+    
+    /* 넘겨주기 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toStarAdd" {
+            let destVC = segue.destination as! AddToppingViewController
+            
+            destVC.title = "Starbucks"
+            
+            if let detailRecipe = labelStarDetailRecipe.text {
+                destVC.selectedRecipeDetail = detailRecipe
+            }
+        }
     }
     
 }

@@ -94,5 +94,18 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         labelSubDetailRecipe.text = subMenuDictionary[key]
         
     }
+    
+    /* 넘겨주기 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSubAdd" {
+            let destVC = segue.destination as! AddToppingViewController
+            
+            destVC.title = "Subway"
+            
+            if let detailRecipe = labelSubDetailRecipe.text {
+                destVC.selectedRecipeDetail = detailRecipe
+            }
+        }
+    }
 
 }

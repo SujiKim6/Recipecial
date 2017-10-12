@@ -8,12 +8,14 @@
 
 import UIKit
 
-class AddToppingViewController: UIViewController {
+class AddToppingViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var labelSelectedRecipe: UILabel!
     @IBOutlet var textFieldTopping: UITextField!
     @IBOutlet var btnAdd: UIButton!
     @IBOutlet var btnGoThrough: UIButton!
+    
+    var selectedRecipeDetail:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,34 @@ class AddToppingViewController: UIViewController {
     }
     */
     
+    /* 키보드에 대한 delegate 함수 */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /* segue에 따른 처리 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddFinal" {
+            let destVC = segue.destination as! FinalRecipeViewController
+            
+            // 선택된 레시피에 대한 레시피 전달 받고 그에 대한 추가된 토핑 넣어서 전달
+            if let originalRecipe = selectedRecipeDetail {
+                var sendRecipe:String = originalRecipe
+                sendRecipe += " + "
+                sendRecipe += textFieldTopping.text!
+                destVC.finalDetailRecipe = sendRecipe
+            }
+        }
+        else {
+            let destVC = segue.destination as! FinalRecipeViewController
+
+            if let originalRecipe = selectedRecipeDetail {
+                destVC.finalDetailRecipe = originalRecipe
+            }
+        }
+    }
+    
     @IBAction func buttonClicked(_ sender: UIButton) {
         
         /* 추가하기 버튼이 눌렸을 경우 */
@@ -51,16 +81,6 @@ class AddToppingViewController: UIViewController {
                 
                 self.present(dialog, animated: true, completion: nil)
             }
-                
-            /* text field가 채워져있을 경우 -> 추가할 토핑을 포함한 레시피를 다음화면에 전달 */
-            else {
-                
-            }
-        }
-            
-        /* 건너뛰기 버튼이 눌렸을 경우 -> 기존 레시피를 다음화면에 전달 */
-        else {
-            
         }
 
     }

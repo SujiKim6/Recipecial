@@ -24,7 +24,9 @@ class ViewController: UIViewController {
         /* 코어 데이터에 기존 추천 레시피 코어데이터에 저장 */
         // 처음 어플 실행시 한번 실행 후 주석 처리하기. 중복으로 들어가는 것을 방지하기 위함.
         let context = self.getContext()
-        let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
+//        let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
+        let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
+        let newRecipes = NSManagedObject(entity: entity!, insertInto: context)
         
         for i in 0..<subRecipeName.count {
             newRecipes.setValue("Subway", forKey: "brand")
@@ -53,8 +55,6 @@ class ViewController: UIViewController {
                 print("Fail Saving")
             }
         }
-        
-        print()
     }
 
     override func didReceiveMemoryWarning() {

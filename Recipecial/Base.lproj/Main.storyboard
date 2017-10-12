@@ -227,7 +227,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496568202972" green="0.098048247396945953" blue="0.098021931946277618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="aSX-t5-OGr" id="VJV-a4-4If"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="기존 레시피에서 토핑 추가를 원할 시, 추가할 토핑을 입력하고 추가하기를 누르세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axu-zo-NIB">
                                 <rect key="frame" x="16" y="112" width="343" height="92"/>
@@ -364,7 +367,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="g2v-yI-Ff0" id="uz9-J3-Ecf"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-5P-KA8">
                                 <rect key="frame" x="136" y="419" width="103" height="38"/>
@@ -411,7 +417,7 @@
         <image name="Subway_logo.png" width="1200" height="357"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mSA-bH-3AN"/>
-        <segue reference="BHM-5G-q1I"/>
+        <segue reference="Wls-Kt-FqO"/>
+        <segue reference="qAQ-e0-2Pg"/>
     </inferredMetricsTieBreakers>
 </document>

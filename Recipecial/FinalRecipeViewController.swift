@@ -11,10 +11,17 @@ import UIKit
 class FinalRecipeViewController: UIViewController {
 
     @IBOutlet var labelFinalRecipe: UILabel!
+    
+    var finalDetailRecipe:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let showFinalRecipe = finalDetailRecipe {
+            labelFinalRecipe.text = showFinalRecipe
+        }
     }
 
     override func didReceiveMemoryWarning() {
