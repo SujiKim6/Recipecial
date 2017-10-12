@@ -7,16 +7,47 @@
 //
 
 import UIKit
+import CoreData
 
-class StarbucksMenuViewController: UIViewController {
+class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet var starMenuPicker: UIPickerView!
-    @IBOutlet var starDetailRecipe: UILabel!
+    @IBOutlet var pickerStarMenu: UIPickerView!
+    @IBOutlet var labelStarDetailRecipe: UILabel!
+    
+    var starMenuDictionary:[String:String] = [:] // picker에 들어갈 메뉴와 그 메뉴에 해당하는 레시피 저장
+    var sortedKeys:Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        /* 코어데이터에서 데이터를 빼서 starMenuDictionary에 추가하기 */
+        let context = self.getContext()
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Recipe")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            
+            for user in results as! [NSManagedObject] {
+                if let brandName = Recipe.value(forKey: "brand") as? String,
+                    let recipeName = user.value(forKey: "menuName") as? String,
+                    let detailRecipe = user.value(forKey: "detailMenu") as? String
+                {
+                    if brandName == "Starbucks" {
+                        starMenuDictionary[recipeName] = detailRecipe
+                    }
+                }
+            }
+            
+//            print(subMenuDictionary)
+        } catch {
+            print("Find error")
+        }
+        
+        let unsortedKeys = Array(starMenuDictionary.keys)
+        sortedKeys = unsortedKeys.sorted()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +65,30 @@ class StarbucksMenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /* Core Data 사용을 위한 함수 */
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    /* custom picker에 들어갈 내용 */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sortedKeys.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sortedKeys[row]
+    }
 
+    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 및 넘어가는 화면에 선택된 메뉴 넘겨주기 */
     @IBAction func buttonSearch() {
+        let index = pickerStarMenu.selectedRow(inComponent: 0)
+        let key:String = sortedKeys[index]
+        
+        labelStarDetailRecipe.text = starMenuDictionary[key]
     }
     
 }

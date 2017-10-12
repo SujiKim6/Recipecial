@@ -122,8 +122,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="starDetailRecipe" destination="b0O-Q6-TgG" id="Cb8-lU-jyy"/>
-                        <outlet property="starMenuPicker" destination="qpA-Vn-FeX" id="O0h-5C-WWw"/>
+                        <outlet property="labelStarDetailRecipe" destination="b0O-Q6-TgG" id="oDw-Sg-304"/>
+                        <outlet property="pickerStarMenu" destination="qpA-Vn-FeX" id="ufQ-t9-bXs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lx6-n7-Y2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,8 +195,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="subDetailRecipe" destination="A1G-0K-FP7" id="AJS-nT-A25"/>
-                        <outlet property="subMenuPicker" destination="hl6-gf-ray" id="gfo-bR-xq1"/>
+                        <outlet property="labelSubDetailRecipe" destination="A1G-0K-FP7" id="Ufy-FY-BBS"/>
+                        <outlet property="pickerSubMenu" destination="hl6-gf-ray" id="mgF-H4-e6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-p4-1Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +407,7 @@
         <image name="Subway_logo.png" width="1200" height="357"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mSA-bH-3AN"/>
+        <segue reference="Wls-Kt-FqO"/>
         <segue reference="BHM-5G-q1I"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,22 +9,45 @@
 import UIKit
 import CoreData
 
-class SubwayMenuViewController: UIViewController{
+class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet var subMenuPicker: UIPickerView!
-    @IBOutlet var subDetailRecipe: UILabel!
+    @IBOutlet var pickerSubMenu: UIPickerView!
+    @IBOutlet var labelSubDetailRecipe: UILabel!
     
-//    var subMenuArray:[NSManagedObject] = []
-    
-//    var subMenuDictionary : [String : String] = ["스테이크&치즈":"", "B.L.T."]
-    var subMenuDictionary:[String:String] = [:]
+    var subMenuDictionary:[String:String] = [:] // picker에 들어갈 메뉴와 그 메뉴에 해당하는 레시피 저장
+    var sortedKeys : Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        /* 코어데이터에서 데이터를 빼서 subMenuDictionary에 추가하기 */
+        let context = self.getContext()
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Recipe")
+        request.returnsObjectsAsFaults = false
         
+        do {
+            let results = try context.fetch(request)
+            
+            for user in results as! [NSManagedObject] {
+                if let brandName = Recipe.value(forKey: "brand") as? String,
+                    let recipeName = user.value(forKey: "menuName") as? String,
+                    let detailRecipe = user.value(forKey: "detailMenu") as? String
+                {
+                    if brandName == "Subway" {
+                        subMenuDictionary[recipeName] = detailRecipe
+                    }
+                }
+            }
+            
+//            print(subMenuDictionary)
+        } catch {
+            print("Find error")
+        }
+        let unsortedKeys = Array(subMenuDictionary.keys)
+        
+        sortedKeys = unsortedKeys.sorted()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,38 +66,31 @@ class SubwayMenuViewController: UIViewController{
     }
     */
     
+    /* Core Data 사용을 위한 함수 */
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+
+    /* custom picker에 들어갈 내용 */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sortedKeys.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sortedKeys[row]
+        
+    }
     
-//
-//    // View가 보여질 때 자료를 DB에서 가져오도록 한다 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let context = self.getContext()
-//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Recipe")
-//        
-//        do {
-//            subMenuArray = try context.fetch(fetchRequest)
-//        }
-//        catch let error as NSError {
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//        }
-//        
-//        self.subMenuPicker.reloadAllComponents()
-//    }
-    
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return subMenuArray.count
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-//        return
-//    }
-    
-    
+    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 및 넘어가는 화면에 선택된 메뉴 넘겨주기 */
     @IBAction func buttonSearch() {
+        let index = pickerSubMenu.selectedRow(inComponent: 0)
+        let key:String = sortedKeys[index]
+        
+        labelSubDetailRecipe.text = subMenuDictionary[key]
+        
     }
 
 }
