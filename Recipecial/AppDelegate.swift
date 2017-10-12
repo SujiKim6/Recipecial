@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Recipecial
 //
-//  Created by 김은지 on 2017. 10. 12..
+//  Created by 김수지 on 2017. 10. 12..
 //  Copyright © 2017년 Suji. All rights reserved.
 //
 

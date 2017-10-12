@@ -28,7 +28,7 @@
                                     <color key="titleColor" red="0.035402882839999997" green="0.68065112829999996" blue="0.22404772040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="leA-cO-dmA" kind="show" id="Aaq-E5-btY"/>
+                                    <segue destination="leA-cO-dmA" kind="show" identifier="toSubway" id="Aaq-E5-btY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3d-uL-N7W">
@@ -38,7 +38,7 @@
                                     <color key="titleColor" red="0.020431051030000001" green="0.41165697569999998" blue="0.13814133410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8yG-mb-arN" kind="show" id="jsu-I7-x9D"/>
+                                    <segue destination="8yG-mb-arN" kind="show" identifier="toStarbucks" id="jsu-I7-x9D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="브랜드를 선택하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk6-Pr-hv6">
@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="437.60000000000002" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Starbucks Menu View Controller-->
         <scene sceneID="hpm-sd-HOC">
             <objects>
-                <viewController id="8yG-mb-arN" sceneMemberID="viewController">
+                <viewController id="8yG-mb-arN" customClass="StarbucksMenuViewController" customModule="Recipecial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iw3-U0-2lf"/>
                         <viewControllerLayoutGuide type="bottom" id="GFe-3D-2Wb"/>
@@ -78,6 +78,10 @@
                                 <rect key="frame" x="16" y="206" width="343" height="198"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.098023496568202972" green="0.098048247396945953" blue="0.098021931946277618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8yG-mb-arN" id="heR-wa-9QO"/>
+                                    <outlet property="delegate" destination="8yG-mb-arN" id="xFU-A3-227"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메뉴를 선택 후 검색을 누르세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCx-y3-qDK">
                                 <rect key="frame" x="16" y="168" width="343" height="38"/>
@@ -93,8 +97,11 @@
                                 <state key="normal" title="검색">
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSearch" destination="8yG-mb-arN" eventType="touchUpInside" id="d3o-8F-eNq"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-Q6-TgG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail Recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-Q6-TgG">
                                 <rect key="frame" x="16" y="404" width="343" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -108,21 +115,25 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aSX-t5-OGr" kind="show" id="Wls-Kt-FqO"/>
+                                    <segue destination="aSX-t5-OGr" kind="show" identifier="toStarAdd" id="Wls-Kt-FqO"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="starDetailRecipe" destination="b0O-Q6-TgG" id="Cb8-lU-jyy"/>
+                        <outlet property="starMenuPicker" destination="qpA-Vn-FeX" id="O0h-5C-WWw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lx6-n7-Y2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="500"/>
         </scene>
-        <!--View Controller-->
+        <!--Subway Menu View Controller-->
         <scene sceneID="Ybg-Nc-7Vs">
             <objects>
-                <viewController id="leA-cO-dmA" sceneMemberID="viewController">
+                <viewController id="leA-cO-dmA" customClass="SubwayMenuViewController" customModule="Recipecial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mlg-nH-XTY"/>
                         <viewControllerLayoutGuide type="bottom" id="b0b-It-DdH"/>
@@ -147,6 +158,10 @@
                                 <rect key="frame" x="16" y="208" width="343" height="196"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.098023496568202972" green="0.098048247396945953" blue="0.098021931946277618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="leA-cO-dmA" id="J0o-sk-2Dt"/>
+                                    <outlet property="delegate" destination="leA-cO-dmA" id="NCf-wR-TmM"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79t-wx-whH">
                                 <rect key="frame" x="305" y="170" width="54" height="38"/>
@@ -155,8 +170,11 @@
                                 <state key="normal" title="검색">
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSearch" destination="leA-cO-dmA" eventType="touchUpInside" id="Avk-nm-hlD"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-0K-FP7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail Recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-0K-FP7">
                                 <rect key="frame" x="16" y="403" width="343" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -170,21 +188,25 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aSX-t5-OGr" kind="show" id="mSA-bH-3AN"/>
+                                    <segue destination="aSX-t5-OGr" kind="show" identifier="toSubAdd" id="mSA-bH-3AN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="subDetailRecipe" destination="A1G-0K-FP7" id="AJS-nT-A25"/>
+                        <outlet property="subMenuPicker" destination="hl6-gf-ray" id="gfo-bR-xq1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-p4-1Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="-210"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Topping View Controller-->
         <scene sceneID="udJ-BM-GoM">
             <objects>
-                <viewController id="aSX-t5-OGr" sceneMemberID="viewController">
+                <viewController id="aSX-t5-OGr" customClass="AddToppingViewController" customModule="Recipecial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gUp-lf-n0y"/>
                         <viewControllerLayoutGuide type="bottom" id="taj-EU-uBB"/>
@@ -200,7 +222,7 @@
                                 <color key="textColor" red="0.22731652855873108" green="0.23140507936477661" blue="0.23138600587844849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-Fg-dLD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-Fg-dLD">
                                 <rect key="frame" x="131" y="320" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496568202972" green="0.098048247396945953" blue="0.098021931946277618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -235,7 +257,7 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ri0-jn-IVP" kind="show" id="BHM-5G-q1I"/>
+                                    <segue destination="ri0-jn-IVP" kind="show" identifier="toPassFinal" id="BHM-5G-q1I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PH-Z9-SdQ">
@@ -245,21 +267,25 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ri0-jn-IVP" kind="show" id="qAQ-e0-2Pg"/>
+                                    <segue destination="ri0-jn-IVP" kind="show" identifier="toAddFinal" id="qAQ-e0-2Pg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="labelSelectedRecipe" destination="5IE-bg-Qnq" id="BUh-gA-Ufb"/>
+                        <outlet property="textFieldTopping" destination="R2f-Fg-dLD" id="yTI-u3-hfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNK-mA-UyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1934" y="123"/>
         </scene>
-        <!--View Controller-->
+        <!--Final Recipe View Controller-->
         <scene sceneID="Dqd-FR-HFj">
             <objects>
-                <viewController id="ri0-jn-IVP" sceneMemberID="viewController">
+                <viewController id="ri0-jn-IVP" customClass="FinalRecipeViewController" customModule="Recipecial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9qo-wm-8my"/>
                         <viewControllerLayoutGuide type="bottom" id="Zqz-lc-gRT"/>
@@ -295,15 +321,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="labelFinalRecipe" destination="89q-fv-UZD" id="6ZH-dY-sUd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slV-yb-5HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2670" y="123"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Recipe View Controller-->
         <scene sceneID="iZ8-Mk-8RP">
             <objects>
-                <viewController id="g2v-yI-Ff0" sceneMemberID="viewController">
+                <viewController id="g2v-yI-Ff0" customClass="AddNewRecipeViewController" customModule="Recipecial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u8b-sl-JdN"/>
                         <viewControllerLayoutGuide type="bottom" id="kmg-mz-h1E"/>
@@ -313,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="새로운 이름을 적어주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIY-Zb-x6Z">
-                                <rect key="frame" x="16" y="104" width="343" height="92"/>
+                                <rect key="frame" x="16" y="108" width="343" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.21565845608711243" green="0.21570226550102234" blue="0.21565568447113037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -326,7 +355,7 @@
                                 <color key="textColor" red="0.21163177490234375" green="0.21571788191795349" blue="0.21570149064064026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Recipe Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xla-CO-mUn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter New Recipe Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xla-CO-mUn">
                                 <rect key="frame" x="131" y="296" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -339,10 +368,16 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonOK" destination="g2v-yI-Ff0" eventType="touchUpInside" id="x9F-Ov-thO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="textFieldNewName" destination="Xla-CO-mUn" id="XYL-56-nf0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EH1-ol-fV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -372,7 +407,7 @@
         <image name="Subway_logo.png" width="1200" height="357"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wls-Kt-FqO"/>
-        <segue reference="qAQ-e0-2Pg"/>
+        <segue reference="mSA-bH-3AN"/>
+        <segue reference="BHM-5G-q1I"/>
     </inferredMetricsTieBreakers>
 </document>

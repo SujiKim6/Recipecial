@@ -15,6 +15,11 @@
 		FDB8BF6E1F8F8B2400B2099B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF6C1F8F8B2400B2099B /* LaunchScreen.storyboard */; };
 		FDB8BF771F8F8B6700B2099B /* Starbucks_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */; };
 		FDB8BF781F8F8B6700B2099B /* Subway_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF761F8F8B6700B2099B /* Subway_logo.png */; };
+		FDB8BF7A1F8F97A800B2099B /* SubwayMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */; };
+		FDB8BF7E1F8F981800B2099B /* StarbucksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */; };
+		FDB8BF821F8F987200B2099B /* FinalRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */; };
+		FDB8BF841F8F989D00B2099B /* AddToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */; };
+		FDB8BF861F8F98CE00B2099B /* AddNewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		FDB8BF6F1F8F8B2400B2099B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starbucks_logo.png; sourceTree = "<group>"; };
 		FDB8BF761F8F8B6700B2099B /* Subway_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Subway_logo.png; sourceTree = "<group>"; };
+		FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubwayMenuViewController.swift; sourceTree = "<group>"; };
+		FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksMenuViewController.swift; sourceTree = "<group>"; };
+		FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalRecipeViewController.swift; sourceTree = "<group>"; };
+		FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToppingViewController.swift; sourceTree = "<group>"; };
+		FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,11 @@
 				FDB8BF6C1F8F8B2400B2099B /* LaunchScreen.storyboard */,
 				FDB8BF6F1F8F8B2400B2099B /* Info.plist */,
 				FDB8BF671F8F8B2400B2099B /* Recipecial.xcdatamodeld */,
+				FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */,
+				FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */,
+				FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */,
+				FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */,
+				FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */,
 			);
 			path = Recipecial;
 			sourceTree = "<group>";
@@ -147,9 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB8BF7A1F8F97A800B2099B /* SubwayMenuViewController.swift in Sources */,
+				FDB8BF821F8F987200B2099B /* FinalRecipeViewController.swift in Sources */,
+				FDB8BF861F8F98CE00B2099B /* AddNewRecipeViewController.swift in Sources */,
+				FDB8BF7E1F8F981800B2099B /* StarbucksMenuViewController.swift in Sources */,
 				FDB8BF691F8F8B2400B2099B /* Recipecial.xcdatamodeld in Sources */,
 				FDB8BF631F8F8B2400B2099B /* ViewController.swift in Sources */,
 				FDB8BF611F8F8B2400B2099B /* AppDelegate.swift in Sources */,
+				FDB8BF841F8F989D00B2099B /* AddToppingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
