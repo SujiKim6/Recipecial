@@ -13,6 +13,8 @@
 		FDB8BF691F8F8B2400B2099B /* Recipecial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF671F8F8B2400B2099B /* Recipecial.xcdatamodeld */; };
 		FDB8BF6B1F8F8B2400B2099B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF6A1F8F8B2400B2099B /* Assets.xcassets */; };
 		FDB8BF6E1F8F8B2400B2099B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF6C1F8F8B2400B2099B /* LaunchScreen.storyboard */; };
+		FDB8BF771F8F8B6700B2099B /* Starbucks_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */; };
+		FDB8BF781F8F8B6700B2099B /* Subway_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF761F8F8B6700B2099B /* Subway_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FDB8BF6A1F8F8B2400B2099B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDB8BF6D1F8F8B2400B2099B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB8BF6F1F8F8B2400B2099B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starbucks_logo.png; sourceTree = "<group>"; };
+		FDB8BF761F8F8B6700B2099B /* Subway_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Subway_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		FDB8BF5F1F8F8B2400B2099B /* Recipecial */ = {
 			isa = PBXGroup;
 			children = (
+				FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */,
+				FDB8BF761F8F8B6700B2099B /* Subway_logo.png */,
 				FDB8BF601F8F8B2400B2099B /* AppDelegate.swift */,
 				FDB8BF621F8F8B2400B2099B /* ViewController.swift */,
 				FDB8BF641F8F8B2400B2099B /* Main.storyboard */,
@@ -129,6 +135,8 @@
 				FDB8BF6E1F8F8B2400B2099B /* LaunchScreen.storyboard in Resources */,
 				FDB8BF6B1F8F8B2400B2099B /* Assets.xcassets in Resources */,
 				FDB8BF661F8F8B2400B2099B /* Main.storyboard in Resources */,
+				FDB8BF781F8F8B6700B2099B /* Subway_logo.png in Resources */,
+				FDB8BF771F8F8B6700B2099B /* Starbucks_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
