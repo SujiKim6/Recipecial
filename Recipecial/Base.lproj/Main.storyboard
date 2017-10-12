@@ -171,7 +171,7 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonSearch" destination="leA-cO-dmA" eventType="touchUpInside" id="Avk-nm-hlD"/>
+                                    <action selector="buttonSearch" destination="leA-cO-dmA" eventType="touchUpInside" id="8vl-KJ-PXb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail Recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-0K-FP7">
@@ -257,6 +257,7 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="buttonClicked:" destination="aSX-t5-OGr" eventType="touchUpInside" id="kJG-RQ-Seb"/>
                                     <segue destination="ri0-jn-IVP" kind="show" identifier="toPassFinal" id="BHM-5G-q1I"/>
                                 </connections>
                             </button>
@@ -267,6 +268,7 @@
                                     <color key="titleColor" red="0.0" green="0.77963668109999995" blue="0.23582354189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="buttonClicked:" destination="aSX-t5-OGr" eventType="touchUpInside" id="2PS-69-62b"/>
                                     <segue destination="ri0-jn-IVP" kind="show" identifier="toAddFinal" id="qAQ-e0-2Pg"/>
                                 </connections>
                             </button>
@@ -274,6 +276,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnAdd" destination="0PH-Z9-SdQ" id="vfV-wU-Llf"/>
+                        <outlet property="btnGoThrough" destination="Aw8-8H-abW" id="owp-Zd-IPl"/>
                         <outlet property="labelSelectedRecipe" destination="5IE-bg-Qnq" id="BUh-gA-Ufb"/>
                         <outlet property="textFieldTopping" destination="R2f-Fg-dLD" id="yTI-u3-hfi"/>
                     </connections>
@@ -407,7 +411,7 @@
         <image name="Subway_logo.png" width="1200" height="357"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wls-Kt-FqO"/>
+        <segue reference="mSA-bH-3AN"/>
         <segue reference="BHM-5G-q1I"/>
     </inferredMetricsTieBreakers>
 </document>

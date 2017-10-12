@@ -24,24 +24,26 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         /* 코어데이터에서 데이터를 빼서 subMenuDictionary에 추가하기 */
         let context = self.getContext()
-        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Recipe")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
             
-            for user in results as! [NSManagedObject] {
-                if let brandName = Recipe.value(forKey: "brand") as? String,
-                    let recipeName = user.value(forKey: "menuName") as? String,
-                    let detailRecipe = user.value(forKey: "detailMenu") as? String
+            for menuList in results as! [NSManagedObject] {
+                if let brandName = menuList.value(forKey: "brand") as? String,
+                    let recipeName = menuList.value(forKey: "menuName") as? String,
+                    let detailRecipe = menuList.value(forKey: "detailMenu") as? String
                 {
+                    print(recipeName)
+                    print(detailRecipe)
                     if brandName == "Subway" {
                         subMenuDictionary[recipeName] = detailRecipe
                     }
                 }
             }
             
-//            print(subMenuDictionary)
+            print(subMenuDictionary)
         } catch {
             print("Find error")
         }

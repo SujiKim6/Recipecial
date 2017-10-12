@@ -24,24 +24,26 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         /* 코어데이터에서 데이터를 빼서 starMenuDictionary에 추가하기 */
         let context = self.getContext()
-        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Recipe")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe") 
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
             
-            for user in results as! [NSManagedObject] {
-                if let brandName = Recipe.value(forKey: "brand") as? String,
-                    let recipeName = user.value(forKey: "menuName") as? String,
-                    let detailRecipe = user.value(forKey: "detailMenu") as? String
-                {
-                    if brandName == "Starbucks" {
-                        starMenuDictionary[recipeName] = detailRecipe
+            if results.count > 0 {
+                for menuList in results as! [NSManagedObject] {
+                    if let brandName = menuList.value(forKey: "brand") as? String,
+                        let recipeName = menuList.value(forKey: "menuName") as? String,
+                        let detailRecipe = menuList.value(forKey: "detailMenu") as? String
+                    {
+                        if brandName == "Starbucks" {
+                            starMenuDictionary[recipeName] = detailRecipe
+                        }
                     }
                 }
             }
             
-//            print(subMenuDictionary)
+            print(starMenuDictionary)
         } catch {
             print("Find error")
         }
