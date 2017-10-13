@@ -267,6 +267,9 @@
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MIx-i6-c75" id="Wu4-6t-Ihx"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5단계 야채 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUk-0G-LdN">
                                 <rect key="frame" x="16" y="474" width="105" height="21"/>
@@ -281,13 +284,19 @@
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MIx-i6-c75" id="pYU-tX-4S6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nbT-pE-WCx">
-                                <rect key="frame" x="135" y="517" width="224" height="30"/>
+                                <rect key="frame" x="135" y="518" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MIx-i6-c75" id="HdI-zQ-p4w"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPa-a9-amb">
                                 <rect key="frame" x="250" y="571" width="109" height="30"/>
@@ -305,6 +314,9 @@
                                 <state key="normal" title="초기화">
                                     <color key="titleColor" red="0.027525003999471664" green="0.61339908838272095" blue="0.20378056168556213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnInitialize" destination="MIx-i6-c75" eventType="touchUpInside" id="KWr-PL-FfS"/>
+                                </connections>
                             </button>
                             <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-wl-fLe">
                                 <rect key="frame" x="135" y="253" width="224" height="60"/>
@@ -371,6 +383,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="labelMenuName" destination="Wkg-dl-gOa" id="YeX-n8-JIv"/>
+                        <outlet property="pickerBread" destination="MjP-wl-fLe" id="rmE-pO-oYZ"/>
+                        <outlet property="pickerCheese" destination="BfH-Ip-VIK" id="OeC-Uz-u7Q"/>
+                        <outlet property="segBreadCooked" destination="Lv3-11-uDp" id="xFe-sD-BM7"/>
+                        <outlet property="textFieldAdditional" destination="RmM-Ma-qFl" id="alU-xo-MOT"/>
+                        <outlet property="textFieldSauce" destination="nbT-pE-WCx" id="puf-rk-e8V"/>
+                        <outlet property="textFieldVeget" destination="L9g-nc-Nki" id="Yc6-IB-Vpq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnS-OG-k6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -465,6 +486,9 @@
                                 <state key="normal" title="초기화">
                                     <color key="titleColor" red="0.020431051030755043" green="0.41165697574615479" blue="0.13814133405685425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnInitialize" destination="lXZ-D3-f79" eventType="touchUpInside" id="WXg-9b-THK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메뉴 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f46-cz-8C0">
                                 <rect key="frame" x="16" y="263" width="105" height="21"/>
@@ -473,11 +497,11 @@
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ub-IQK">
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ub-IQK">
                                 <rect key="frame" x="135" y="357" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-qP-CPV">
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-qP-CPV">
                                 <rect key="frame" x="135" y="296" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -522,6 +546,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="labelMenuName" destination="jWN-U9-u6T" id="pZl-2k-lrv"/>
+                        <outlet property="labelRecipeName" destination="7VY-pn-elb" id="2Wd-gp-DqH"/>
+                        <outlet property="pickerCoffeeShot" destination="Nw5-qP-CPV" id="MWe-q4-KnG"/>
+                        <outlet property="pickerSyrup" destination="Hex-Ub-IQK" id="z7t-0W-QoN"/>
+                        <outlet property="textFieldDrizzle" destination="Yw4-Ze-mzT" id="dL0-oN-sj7"/>
+                        <outlet property="textFieldMilk" destination="vXo-6C-A9d" id="k8u-qo-ePl"/>
+                        <outlet property="textFieldWhipping" destination="ft0-uQ-pWa" id="yDO-Jx-bBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ip0-4w-T0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -658,7 +691,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zRO-cY-cKS"/>
-        <segue reference="Hgb-qW-tJu"/>
-        <segue reference="Hpj-MD-gkA"/>
+        <segue reference="hyF-fF-7xo"/>
+        <segue reference="tNF-N7-oge"/>
     </inferredMetricsTieBreakers>
 </document>

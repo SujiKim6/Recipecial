@@ -10,8 +10,18 @@ import UIKit
 
 class UpdateStarbucksMenuViewController: UIViewController {
     
+    @IBOutlet var labelRecipeName: UILabel!
+    @IBOutlet var labelMenuName: UILabel!
+    @IBOutlet var pickerCoffeeShot: UIPickerView!
+    @IBOutlet var pickerSyrup: UIPickerView!
+    @IBOutlet var textFieldMilk: UITextField!
+    @IBOutlet var textFieldWhipping: UITextField!
+    @IBOutlet var textFieldDrizzle: UITextField!
+    
+    
     let numberOfAdd:[String] = ["1","2","3","4","5","6","7","8","9"]
     let syrubTypes:[String] = ["바닐라", "헤이즐넛", "카라멜"]
+    let coffeTypes:[String] = ["에스프레소", "디카페인", "1/2디카페인"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +49,9 @@ class UpdateStarbucksMenuViewController: UIViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func btnInitialize() {
     }
     
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */

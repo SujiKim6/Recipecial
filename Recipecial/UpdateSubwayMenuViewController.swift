@@ -8,9 +8,17 @@
 
 import UIKit
 
-class UpdateSubwayMenuViewController: UIViewController {
+class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var labelMenuName: UILabel!
+    @IBOutlet var pickerBread: UIPickerView!
+    @IBOutlet var pickerCheese: UIPickerView!
+    @IBOutlet var textFieldAdditional: UITextField!
+    @IBOutlet var textFieldVeget: UITextField!
+    @IBOutlet var textFieldSauce: UITextField!
+    @IBOutlet var segBreadCooked: UISegmentedControl!
     
+    var menuName:String?
     let breadTypes:[String] = ["하티", "위트", "허니오트", "화이트", "파마산 오레가노", "플랫 브레드"]
     let cheeseTypes:[String] = ["아메리칸 치즈", "슈레드 치즈"]
     
@@ -40,6 +48,8 @@ class UpdateSubwayMenuViewController: UIViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    @IBAction func btnInitialize() {
     }
     
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
