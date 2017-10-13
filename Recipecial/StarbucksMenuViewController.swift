@@ -16,14 +16,14 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     var starMenuDictionary:[String:String] = [:] // picker에 들어갈 메뉴와 그 메뉴에 해당하는 레시피 저장
     var sortedKeys:Array<String> = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         /* 코어데이터에서 데이터를 빼서 starMenuDictionary에 추가하기 */
         let context = self.getContext()
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe") 
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
         request.returnsObjectsAsFaults = false
         
         do {
@@ -36,14 +36,13 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                         let detailRecipe = menuList.value(forKey: "detailMenu") as? String
                     {
                         if brandName == "Starbucks" {
-                            var detailRecipeArr = 
                             starMenuDictionary[recipeName] = detailRecipe
                         }
                     }
                 }
             }
             
-//            print(starMenuDictionary)
+            //            print(starMenuDictionary)
         } catch {
             print("Find error")
         }
@@ -52,22 +51,22 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
         let unsortedKeys = Array(starMenuDictionary.keys)
         sortedKeys = unsortedKeys.sorted()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     /* Core Data 사용을 위한 함수 */
     func getContext () -> NSManagedObjectContext {
@@ -85,7 +84,7 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return sortedKeys[row]
     }
-
+    
     /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 */
     @IBAction func buttonSearch() {
         let index = pickerStarMenu.selectedRow(inComponent: 0)
@@ -112,12 +111,19 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                     destVC.finalDetailRecipe = detailRecipe
                 }
             }
-            /* 레시피 수정 버튼을 눌럿을 경우 */
+            /* 레시피 수정 버튼을 눌럿을 경우 -> 레시피이름 넘겨주기*/
             else {
                 let destVC = segue.destination as! UpdateStarbucksMenuViewController
                 destVC.title = "Starbucks Recipe Update"
                 
+                destVC.recipeName = key
                 
+                /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
+                var setDefault = starMenuDictionary[key]!.components(separatedBy: "\n")
+                destVC.menuName = setDefault[0]
+                for i in 1..<setDefault.count {
+                    destVC.detailRecipe.append(setDefault[i])
+                }
             }
         }
         /* 메뉴 선택 후 검색 하지 않고 넘겼을 경우 경고창 띄우기 */

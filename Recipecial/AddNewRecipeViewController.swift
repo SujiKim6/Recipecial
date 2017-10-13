@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet var textFieldNewName: UITextField!
     
     var newRecipeDetail:String?
@@ -20,25 +20,23 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-        textFieldNewName.text = "Recipe 1"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     /* Core Data 사용을 위한 함수 */
     func getContext () -> NSManagedObjectContext {
@@ -54,21 +52,7 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
     
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toNewNameFinal" {
         
-            let destVC = segue.destination as! FinalRecipeViewController
-            
-            // 수정된 토핑에 대한 레시피와 레시피 이름 전달
-            if let newRecipe = newRecipeDetail {
-                destVC.labelName.text = textFieldNewName.text! + "의 최종 레시피"
-                destVC.finalDetailRecipe = newRecipe
-                
-            }
-        }
-    }
-    
-    /* 확인 버튼이 눌렸을 경우 */
-    @IBAction func buttonOK() {
         /* text field를 다 입력하지 않았을 경우 */
         if textFieldNewName.text == "" {
             let dialog = UIAlertController(title: "오류", message: "새로운 이름을 입력해주세요.", preferredStyle: .alert)
@@ -78,8 +62,7 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
             
             self.present(dialog, animated: true, completion: nil)
         }
-            
-        /* 다 입력했을 경우 -> core data에 저장하고 최종레시피가 뜨는 화면으로 돌아가기 */
+            /* 이름을 입력했을 경우 -> core data에 저장하고 최종레시피가 뜨는 화면으로 돌아가기 */
         else {
             let context = getContext()
             do {
@@ -97,7 +80,11 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
                 //Error 발생시
                 print("Fail Saving")
             }
+            if segue.identifier == "toNewNameFinal" {
+                let destVC = segue.destination as! FinalRecipeViewController
+                destVC.finalRecipeName = textFieldNewName.text
+                destVC.finalDetailRecipe = newRecipeDetail
+            }
         }
     }
-    
 }

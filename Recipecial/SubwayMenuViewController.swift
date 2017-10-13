@@ -16,7 +16,6 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var subMenuDictionary:[String:String] = [:] // picker에 들어갈 메뉴와 그 메뉴에 해당하는 레시피 저장
     var sortedKeys : Array<String> = [] // picker에 메뉴가 정렬된 상태로 추가하기 위해 선언
-    var detailMenuArr : Array<String> = [] // 상세 레시피를 줄바꿈기호로 분리하여 저장할 수 있는 배열 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +28,14 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         do {
             let results = try context.fetch(request)
-//            print(results.count)
+            //            print(results.count)
             for menuList in results as! [NSManagedObject] {
                 if let brandName = menuList.value(forKey: "brand") as? String,
                     let recipeName = menuList.value(forKey: "menuName") as? String,
                     let detailRecipe = menuList.value(forKey: "detailMenu") as? String
                 {
                     if brandName == "Subway" {
-                        detailMenuArr = detailRecipe.components(separatedBy: "\n")
-                        let showDetailRecipe = detailMenuArr.joined(separator: " + ")
-                        subMenuDictionary[recipeName] = showDetailRecipe
+                        subMenuDictionary[recipeName] = detailRecipe
                     }
                 }
             }
@@ -51,29 +48,29 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let unsortedKeys = Array(subMenuDictionary.keys)
         sortedKeys = unsortedKeys.sorted()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     /* Core Data 사용을 위한 함수 */
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-
+    
     /* custom picker에 들어갈 내용 */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -111,38 +108,17 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     destVC.finalDetailRecipe = detailRecipe
                 }
             }
-            /* 레시피 수정 버튼을 눌렀을 경우 */
+                /* 레시피 수정 버튼을 눌렀을 경우 */
             else {
                 let destVC = segue.destination as! UpdateSubwayMenuViewController
                 destVC.title = "Subway Recipe Update"
                 
-                for i in 0..<detailMenuArr.count {
-                    if detailMenuArr[i] == " " {
-                        continue
-                    }
-                    else {
-                        switch i {
-                        case 0:
-                            for a in 0..<destVC.breadTypes.count {
-                                if detailMenuArr[0] == destVC.breadTypes[a] {
-                                    destVC.pickerBread.tag = a
-                                }
-                            }
-                        case 1:
-                            for a in 0..<destVC.cheeseTypes.count {
-                                if detailMenuArr[0] == destVC.cheeseTypes[a] {
-                                    destVC.pickerCheese.tag = a
-                                }
-                            }
-                        case 2:
-                            destVC.textFieldAdditional.text = detailMenuArr[i]
-                        case 3:
-                            destVC.textFieldVeget.text = detailMenuArr[i]
-                        default:
-                            destVC.textFieldSauce.text = detailMenuArr[i]
-                        }
-                    }
-                    
+                destVC.menuName = key
+                
+                /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
+                var setDefault = subMenuDictionary[key]!.components(separatedBy: "\n")
+                for i in 0..<setDefault.count {
+                    destVC.detailRecipe.append(setDefault[i])
                 }
             }
         }
@@ -156,5 +132,5 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.present(dialog, animated: true, completion: nil)
         }
     }
-
+    
 }
