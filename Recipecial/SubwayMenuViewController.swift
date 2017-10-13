@@ -15,21 +15,20 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var labelSubDetailRecipe: UILabel!
     
     var subMenuDictionary:[String:String] = [:] // picker에 들어갈 메뉴와 그 메뉴에 해당하는 레시피 저장
-    var sortedKeys : Array<String> = []
+    var sortedKeys : Array<String> = [] // picker에 메뉴가 정렬된 상태로 추가하기 위해 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
-        /* 코어데이터에서 데이터를 빼서 subMenuDictionary에 추가하기 */
+        /* 코어데이터에서 데이터를 조회해서 subMenuDictionary에 추가하기 */
         let context = self.getContext()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
-            print(results.count)
+//            print(results.count)
             for menuList in results as! [NSManagedObject] {
                 if let brandName = menuList.value(forKey: "brand") as? String,
                     let recipeName = menuList.value(forKey: "menuName") as? String,
@@ -42,13 +41,13 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     }
                 }
             }
-            
-            print(subMenuDictionary)
+//            print(subMenuDictionary)
         } catch {
             print("Find error")
         }
-        let unsortedKeys = Array(subMenuDictionary.keys)
         
+        /* key 값만 추출하여 정렬 후 배열에 배정 */
+        let unsortedKeys = Array(subMenuDictionary.keys)
         sortedKeys = unsortedKeys.sorted()
     }
 
@@ -86,25 +85,34 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
     }
     
-    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 및 넘어가는 화면에 선택된 메뉴 넘겨주기 */
+    /* picker에서 하나 선택 후 검색 버튼 눌렀을 시 라벨에 레시피 띄우기 */
     @IBAction func buttonSearch() {
         let index = pickerSubMenu.selectedRow(inComponent: 0)
         let key:String = sortedKeys[index]
         
         labelSubDetailRecipe.text = subMenuDictionary[key]
-        
     }
     
-    /* 넘겨주기 */
+    /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSubAdd" {
-            let destVC = segue.destination as! AddToppingViewController
+        
+        /* 다음 버튼을 눌렀을 경우 */
+        if segue.identifier == "toSubFinalRecipe" {
+            let destVC = segue.destination as! FinalRecipeViewController
+            destVC.title = "Subway Final Recipe"
             
-            destVC.title = "Subway"
-            
+            /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
+            destVC.labelName.text = sortedKeys[pickerSubMenu.selectedRow(inComponent: 0)] + "의 최종 레시피"
             if let detailRecipe = labelSubDetailRecipe.text {
-                destVC.selectedRecipeDetail = detailRecipe
+                destVC.labelFinalRecipe.text = detailRecipe
             }
+        }
+        /* 레시피 수정 버튼을 눌렀을 경우 */
+        else {
+            let destVC = segue.destination as! UpdateSubwayMenuViewController
+            destVC.title = "Subway Recipe Update"
+            
+            
         }
     }
 

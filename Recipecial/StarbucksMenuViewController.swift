@@ -19,7 +19,6 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         /* 코어데이터에서 데이터를 빼서 starMenuDictionary에 추가하기 */
@@ -43,11 +42,12 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                 }
             }
             
-            print(starMenuDictionary)
+//            print(starMenuDictionary)
         } catch {
             print("Find error")
         }
         
+        /* key 값만 추출하여 정렬 후 배열에 배정 */
         let unsortedKeys = Array(starMenuDictionary.keys)
         sortedKeys = unsortedKeys.sorted()
     }
@@ -93,16 +93,26 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
         labelStarDetailRecipe.text = starMenuDictionary[key]
     }
     
-    /* 넘겨주기 */
+    /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toStarAdd" {
-            let destVC = segue.destination as! AddToppingViewController
+        
+        /* 다음 버튼을 눌렀을 경우 */
+        if segue.identifier == "toStarFinalRecipe" {
+            let destVC = segue.destination as! FinalRecipeViewController
+            destVC.title = "Starbucks Final Recipe"
             
-            destVC.title = "Starbucks"
-            
+            /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
+            destVC.labelName.text = sortedKeys[pickerStarMenu.selectedRow(inComponent: 0)] + "의 최종 레시피"
             if let detailRecipe = labelStarDetailRecipe.text {
-                destVC.selectedRecipeDetail = detailRecipe
+                destVC.labelFinalRecipe.text = detailRecipe
             }
+        }
+        /* 레시피 수정 버튼을 눌럿을 경우 */
+        else {
+            let destVC = segue.destination as! UpdateStarbucksMenuViewController
+            destVC.title = "Starbucks Recipe Update"
+            
+            
         }
     }
     

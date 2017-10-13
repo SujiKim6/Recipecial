@@ -11,6 +11,7 @@ import UIKit
 class FinalRecipeViewController: UIViewController {
 
     @IBOutlet var labelFinalRecipe: UILabel!
+    @IBOutlet var labelName: UILabel!
     
     var finalDetailRecipe:String?
     

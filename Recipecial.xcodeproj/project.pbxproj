@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD4D0ABA1F90C651004DD428 /* UpdateStarbucksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D0AB91F90C651004DD428 /* UpdateStarbucksMenuViewController.swift */; };
+		FD4D0ABC1F90C668004DD428 /* UpdateSubwayMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D0ABB1F90C668004DD428 /* UpdateSubwayMenuViewController.swift */; };
 		FDB8BF611F8F8B2400B2099B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF601F8F8B2400B2099B /* AppDelegate.swift */; };
 		FDB8BF631F8F8B2400B2099B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF621F8F8B2400B2099B /* ViewController.swift */; };
 		FDB8BF661F8F8B2400B2099B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB8BF641F8F8B2400B2099B /* Main.storyboard */; };
@@ -18,11 +20,12 @@
 		FDB8BF7A1F8F97A800B2099B /* SubwayMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */; };
 		FDB8BF7E1F8F981800B2099B /* StarbucksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */; };
 		FDB8BF821F8F987200B2099B /* FinalRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */; };
-		FDB8BF841F8F989D00B2099B /* AddToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */; };
 		FDB8BF861F8F98CE00B2099B /* AddNewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD4D0AB91F90C651004DD428 /* UpdateStarbucksMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateStarbucksMenuViewController.swift; sourceTree = "<group>"; };
+		FD4D0ABB1F90C668004DD428 /* UpdateSubwayMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSubwayMenuViewController.swift; sourceTree = "<group>"; };
 		FDB8BF5D1F8F8B2400B2099B /* Recipecial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipecial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB8BF601F8F8B2400B2099B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB8BF621F8F8B2400B2099B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubwayMenuViewController.swift; sourceTree = "<group>"; };
 		FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksMenuViewController.swift; sourceTree = "<group>"; };
 		FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalRecipeViewController.swift; sourceTree = "<group>"; };
-		FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToppingViewController.swift; sourceTree = "<group>"; };
 		FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,8 +84,9 @@
 				FDB8BF791F8F97A800B2099B /* SubwayMenuViewController.swift */,
 				FDB8BF7D1F8F981800B2099B /* StarbucksMenuViewController.swift */,
 				FDB8BF811F8F987200B2099B /* FinalRecipeViewController.swift */,
-				FDB8BF831F8F989D00B2099B /* AddToppingViewController.swift */,
 				FDB8BF851F8F98CE00B2099B /* AddNewRecipeViewController.swift */,
+				FD4D0AB91F90C651004DD428 /* UpdateStarbucksMenuViewController.swift */,
+				FD4D0ABB1F90C668004DD428 /* UpdateSubwayMenuViewController.swift */,
 			);
 			path = Recipecial;
 			sourceTree = "<group>";
@@ -165,11 +168,12 @@
 				FDB8BF7A1F8F97A800B2099B /* SubwayMenuViewController.swift in Sources */,
 				FDB8BF821F8F987200B2099B /* FinalRecipeViewController.swift in Sources */,
 				FDB8BF861F8F98CE00B2099B /* AddNewRecipeViewController.swift in Sources */,
+				FD4D0ABA1F90C651004DD428 /* UpdateStarbucksMenuViewController.swift in Sources */,
 				FDB8BF7E1F8F981800B2099B /* StarbucksMenuViewController.swift in Sources */,
+				FD4D0ABC1F90C668004DD428 /* UpdateSubwayMenuViewController.swift in Sources */,
 				FDB8BF691F8F8B2400B2099B /* Recipecial.xcdatamodeld in Sources */,
 				FDB8BF631F8F8B2400B2099B /* ViewController.swift in Sources */,
 				FDB8BF611F8F8B2400B2099B /* AppDelegate.swift in Sources */,
-				FDB8BF841F8F989D00B2099B /* AddToppingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +335,7 @@
 				FDB8BF741F8F8B2400B2099B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

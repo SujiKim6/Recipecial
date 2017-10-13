@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
-class AddNewRecipeViewController: UIViewController {
+class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textFieldNewName: UITextField!
     
+    var newRecipeDetail:String?
+    var brandName:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        
+        textFieldNewName.text = "Recipe 1"
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +40,34 @@ class AddNewRecipeViewController: UIViewController {
     }
     */
     
+    /* Core Data 사용을 위한 함수 */
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    /* 키보드에 대한 delegate 함수 */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewNameFinal" {
+        
+            let destVC = segue.destination as! FinalRecipeViewController
+            
+            // 수정된 토핑에 대한 레시피와 레시피 이름 전달
+            if let newRecipe = newRecipeDetail {
+                destVC.labelName.text = textFieldNewName.text! + "의 최종 레시피"
+                destVC.finalDetailRecipe = newRecipe
+                
+            }
+        }
+    }
+    
+    /* 확인 버튼이 눌렸을 경우 */
     @IBAction func buttonOK() {
         /* text field를 다 입력하지 않았을 경우 */
         if textFieldNewName.text == "" {
@@ -44,10 +78,26 @@ class AddNewRecipeViewController: UIViewController {
             
             self.present(dialog, animated: true, completion: nil)
         }
-        /* 다 입력했을 경우 -> core data에 저장하고 홈화면으로 돌아가기 */
-        else {
             
+        /* 다 입력했을 경우 -> core data에 저장하고 최종레시피가 뜨는 화면으로 돌아가기 */
+        else {
+            let context = getContext()
+            do {
+                if let brand = brandName, let recipeDetail = newRecipeDetail {
+                    let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
+                    newRecipes.setValue(brand, forKey: "brand")
+                    newRecipes.setValue(textFieldNewName.text, forKey: "menuName")
+                    newRecipes.setValue(recipeDetail, forKey: "detailMenu")
+                }
+                
+                try context.save()
+                print("Success Saving1")
+            }
+            catch {
+                //Error 발생시
+                print("Fail Saving")
+            }
         }
     }
-
+    
 }
