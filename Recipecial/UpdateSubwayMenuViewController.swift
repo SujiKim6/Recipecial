@@ -105,7 +105,10 @@ class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate, UIP
         /* text field를 다 입력했을 경우 */
         else {
             // 새로운 레시피에 대한 내용 저장
-            var updateRecipe = labelMenuName.text + "\n" + breadTypes[pickerBread.selectedRow(inComponent: 0)] + "\n" + "빵 굽기" + segBreadCooked.titleForSegment(at: segBreadCooked.selectedSegmentIndex) + "\n" + cheeseTypes[pickerCheese.selectedRow(inComponent: 0)] + "\n" + textFieldAdditional.text + "\n" + textFieldVeget.text + "\n" + textFieldSauce.text
+            var updateRecipe = labelMenuName.text + "\n" + breadTypes[pickerBread.selectedRow(inComponent: 0)] + "\n"
+            updateRecipe += "빵 굽기" + segBreadCooked.titleForSegment(at: segBreadCooked.selectedSegmentIndex) + "\n"
+            updateRecipe += cheeseTypes[pickerCheese.selectedRow(inComponent: 0)] + "\n" + textFieldAdditional.text + "\n"
+            updateRecipe += textFieldVeget.text + "\n" + textFieldSauce.text
             
             // 확인 버튼을 눌러서 최종레시피화면으로 넘어갈 경우 -> 메뉴이름과 수정된 레시피 보내기
             if segue.identifier == "toSubUpdateFinal" {
