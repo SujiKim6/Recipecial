@@ -87,6 +87,7 @@ class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate, UIP
     
     /* 초기화 버튼 눌렀을 경우 */
     @IBAction func btnInitialize() {
+        
     }
     
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */

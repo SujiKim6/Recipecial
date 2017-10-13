@@ -36,6 +36,7 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                         let detailRecipe = menuList.value(forKey: "detailMenu") as? String
                     {
                         if brandName == "Starbucks" {
+                            var detailRecipeArr = 
                             starMenuDictionary[recipeName] = detailRecipe
                         }
                     }

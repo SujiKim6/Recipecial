@@ -444,14 +444,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="우유 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvP-Cc-9Wh">
-                                <rect key="frame" x="16" y="433" width="105" height="21"/>
+                                <rect key="frame" x="16" y="416" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vXo-6C-A9d">
-                                <rect key="frame" x="135" y="429" width="224" height="30"/>
+                                <rect key="frame" x="135" y="412" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -461,14 +461,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="휘핑 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I23-k5-eDE">
-                                <rect key="frame" x="16" y="477" width="105" height="21"/>
+                                <rect key="frame" x="16" y="460" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ft0-uQ-pWa">
-                                <rect key="frame" x="135" y="473" width="224" height="30"/>
+                                <rect key="frame" x="135" y="456" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -478,7 +478,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yw4-Ze-mzT">
-                                <rect key="frame" x="135" y="516" width="224" height="30"/>
+                                <rect key="frame" x="135" y="499" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -488,7 +488,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbb-Rm-D6s">
-                                <rect key="frame" x="250" y="572" width="109" height="30"/>
+                                <rect key="frame" x="250" y="598" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="레시피 등록">
                                     <color key="titleColor" red="0.020431051030755043" green="0.41165697574615479" blue="0.13814133405685425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -498,7 +498,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-5a-fVx">
-                                <rect key="frame" x="16" y="572" width="109" height="30"/>
+                                <rect key="frame" x="16" y="598" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="초기화">
                                     <color key="titleColor" red="0.020431051030755043" green="0.41165697574615479" blue="0.13814133405685425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -514,14 +514,6 @@
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ub-IQK">
-                                <rect key="frame" x="135" y="357" width="224" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="lXZ-D3-f79" id="Tsa-HH-qSo"/>
-                                    <outlet property="delegate" destination="lXZ-D3-f79" id="WQb-Oa-Cwo"/>
-                                </connections>
-                            </pickerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-qP-CPV">
                                 <rect key="frame" x="135" y="296" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -531,14 +523,31 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시럽 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgh-q7-Ygz">
-                                <rect key="frame" x="16" y="377" width="105" height="21"/>
+                                <rect key="frame" x="16" y="375" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="드리즐 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnM-0K-5Uz">
-                                <rect key="frame" x="16" y="521" width="105" height="21"/>
+                                <rect key="frame" x="16" y="504" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4ar-Hw-Xf2">
+                                <rect key="frame" x="135" y="543" width="224" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="IWu-HP-oMP"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="기타 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enc-sw-Ag4">
+                                <rect key="frame" x="16" y="548" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -559,7 +568,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54g-7G-T0b">
-                                <rect key="frame" x="133" y="572" width="109" height="30"/>
+                                <rect key="frame" x="133" y="598" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="확인">
                                     <color key="titleColor" red="0.020431051030755043" green="0.41165697574615479" blue="0.13814133405685425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -568,6 +577,16 @@
                                     <segue destination="ri0-jn-IVP" kind="show" identifier="toStarUpdateFinal" id="hyF-fF-7xo"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zSX-Tw-4nI">
+                                <rect key="frame" x="135" y="370" width="224" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="yLb-YE-lNk"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -575,9 +594,10 @@
                         <outlet property="labelMenuName" destination="jWN-U9-u6T" id="pZl-2k-lrv"/>
                         <outlet property="labelRecipeName" destination="7VY-pn-elb" id="2Wd-gp-DqH"/>
                         <outlet property="pickerCoffee" destination="Nw5-qP-CPV" id="k9S-HR-KN8"/>
-                        <outlet property="pickerSyrup" destination="Hex-Ub-IQK" id="z7t-0W-QoN"/>
                         <outlet property="textFieldDrizzle" destination="Yw4-Ze-mzT" id="dL0-oN-sj7"/>
+                        <outlet property="textFieldEtc" destination="4ar-Hw-Xf2" id="y8r-b0-Kzy"/>
                         <outlet property="textFieldMilk" destination="vXo-6C-A9d" id="k8u-qo-ePl"/>
+                        <outlet property="textFieldSyrup" destination="zSX-Tw-4nI" id="Bba-iP-zEa"/>
                         <outlet property="textFieldWhipping" destination="ft0-uQ-pWa" id="yDO-Jx-bBZ"/>
                     </connections>
                 </viewController>
@@ -715,8 +735,8 @@
         <image name="Subway_logo.png" width="1200" height="357"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="hyF-fF-7xo"/>
         <segue reference="zRO-cY-cKS"/>
-        <segue reference="Hgb-qW-tJu"/>
         <segue reference="tNF-N7-oge"/>
     </inferredMetricsTieBreakers>
 </document>
