@@ -305,7 +305,7 @@
                                     <color key="titleColor" red="0.027525003999471664" green="0.61339908838272095" blue="0.20378056168556213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="g2v-yI-Ff0" kind="show" id="Hpj-MD-gkA"/>
+                                    <segue destination="g2v-yI-Ff0" kind="show" identifier="toSubAddNewRecipe" id="Hpj-MD-gkA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiV-Em-ine">
@@ -494,7 +494,7 @@
                                     <color key="titleColor" red="0.020431051030755043" green="0.41165697574615479" blue="0.13814133405685425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="g2v-yI-Ff0" kind="show" id="tNF-N7-oge"/>
+                                    <segue destination="g2v-yI-Ff0" kind="show" identifier="toStarAddNewRecipe" id="tNF-N7-oge"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-5a-fVx">
@@ -716,7 +716,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zRO-cY-cKS"/>
-        <segue reference="hyF-fF-7xo"/>
+        <segue reference="Hgb-qW-tJu"/>
         <segue reference="tNF-N7-oge"/>
     </inferredMetricsTieBreakers>
 </document>

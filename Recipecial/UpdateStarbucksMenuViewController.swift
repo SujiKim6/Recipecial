@@ -20,8 +20,8 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
     
     
     let numberOfAdd:[String] = ["1","2","3","4","5","6","7","8","9"]
-    let syrubTypes:[String] = ["바닐라", "헤이즐넛", "카라멜"]
-    let coffeTypes:[String] = ["에스프레소", "디카페인", "1/2디카페인"]
+    let syrupTypes:[String] = ["바닐라", "헤이즐넛", "카라멜"]
+    let coffeeTypes:[String] = ["에스프레소", "디카페인", "1/2디카페인"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,11 +63,11 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         if component == 0 {
             // 커피에 대한 피커인 경우
             if pickerView == pickerCoffee {
-                return coffeTypes.count
+                return coffeeTypes.count
             }
             // 시럽에 대한 피커인 경우
             else {
-                return syrubTypes.count
+                return syrupTypes.count
             }
         }
         
@@ -75,23 +75,28 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         return numberOfAdd.count
     }
     
-    /* 각 picker에 각 데이터들 정의 */
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    /* 각 picker에 각 데이터들 정의 및 글자크기 지정 */
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
+        let label = (view as? UILabel) ?? UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 13.0)
+
         // 첫번째 열인 경우
         if component == 0 {
             // 커피에 대한 피커인 경우
             if pickerView == pickerCoffee {
-                return coffeTypes[row]
+                label.text = coffeeTypes[row]
             }
-                // 시럽에 대한 피커인 경우
+            // 시럽에 대한 피커인 경우
             else {
-                return syrubTypes[row]
+                label.text = syrupTypes[row]
             }
         }
-        
-        //두번째 열인 경우
-        return numberOfAdd[row]
+        else {
+            label.text = numberOfAdd[row]
+        }
+        return label
     }
     
     @IBAction func btnInitialize() {
@@ -99,11 +104,38 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
     
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toNewNameFinal" {
+        /* text field를 다 입력하지 않았을 경우 */
+        if textFieldMilk.text == "" && textFieldWhipping.text == "" && textFieldDrizzle.text == "" {
+            let dialog = UIAlertController(title: "오류", message: "새로운 이름을 입력해주세요.", preferredStyle: .alert)
             
-            let destVC = segue.destination as! FinalRecipeViewController
+            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            dialog.addAction(action)
             
+            self.present(dialog, animated: true, completion: nil)
+        }
+        /* text field를 다 입력했을 경우 */
+        else {
+            // 새로운 레시피에 대한 내용 저장
+            var updateRecipe = labelMenuName.text + "\n" + coffeeTypes[pickerCoffee.selectedRow(inComponent: 0)] + "\n" + numberOfAdd[pickerCoffee.selectedRow(inComponent: 1)] + "샷\n" + syrupTypes[pickerSyrup.selectedRow(inComponent: 0)] + "\n" + numberOfAdd[pickerSyrup.selectedRow(inComponent: 1)] + "\n" + textFieldMilk.text + "\n" + textFieldWhipping.text + "\n" + textFieldDrizzle.text
             
+            // 확인 버튼을 눌러서 최종레시피화면으로 넘어갈 경우 -> 레시피명과 수정된 레시피 보내기
+            if segue.identifier == "toStarUpdateFinal" {
+                let destVC = segue.destination as! FinalRecipeViewController
+                destVC.finalRecipeName = labelRecipeName.text + "의 최종 레시피"
+                if let sendFinalRecipe = updateRecipe {
+                    destVC.newRecipeDetail = sendFinalRecipe
+                }
+            }
+            // 레시피등록 버튼을 눌러 새로운 이름을 지정하는 화면으로 넘어갈 경우 -> 브랜드와 수정된 레시피 보내기
+            else if segue.identifier == "toStarAddNewRecipe" {
+                let destVC = segue.destination as! AddNewRecipeViewController
+                
+                destVC.brandName = "Starbucks"
+                if let sendFinalRecipe = updateRecipe {
+                    destVC.newRecipeDetail = sendFinalRecipe
+                }
+            }
+
         }
     }
     
