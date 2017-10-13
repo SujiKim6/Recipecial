@@ -8,11 +8,11 @@
 
 import UIKit
 
-class UpdateStarbucksMenuViewController: UIViewController {
+class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet var labelRecipeName: UILabel!
     @IBOutlet var labelMenuName: UILabel!
-    @IBOutlet var pickerCoffeeShot: UIPickerView!
+    @IBOutlet var pickerCoffee: UIPickerView!
     @IBOutlet var pickerSyrup: UIPickerView!
     @IBOutlet var textFieldMilk: UITextField!
     @IBOutlet var textFieldWhipping: UITextField!
@@ -49,6 +49,49 @@ class UpdateStarbucksMenuViewController: UIViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    /* 커피에 대한 picker와 시럽에 대한 picker는 두개의 component로 이루어지므로 2리턴 */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    /* 각 picker에 몇개의 데이터를 가질지 초기화 */
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        // 첫번째 열인 경우
+        if component == 0 {
+            // 커피에 대한 피커인 경우
+            if pickerView == pickerCoffee {
+                return coffeTypes.count
+            }
+            // 시럽에 대한 피커인 경우
+            else {
+                return syrubTypes.count
+            }
+        }
+        
+        //두번째 열인 경우
+        return numberOfAdd.count
+    }
+    
+    /* 각 picker에 각 데이터들 정의 */
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        // 첫번째 열인 경우
+        if component == 0 {
+            // 커피에 대한 피커인 경우
+            if pickerView == pickerCoffee {
+                return coffeTypes[row]
+            }
+                // 시럽에 대한 피커인 경우
+            else {
+                return syrubTypes[row]
+            }
+        }
+        
+        //두번째 열인 경우
+        return numberOfAdd[row]
     }
     
     @IBAction func btnInitialize() {

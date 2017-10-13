@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate {
+class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet var labelMenuName: UILabel!
     @IBOutlet var pickerBread: UIPickerView!
@@ -49,6 +49,36 @@ class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    /* 빵에 대한 picker 와 치즈에 대한 picker는 하나의 component로 이루어지므로 1리턴 */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    /* 각 picker에 몇개의 데이터를 가질지 초기화 */
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        // 빵에 대한 picker인 경우
+        if pickerView == pickerBread {
+            return breadTypes.count
+        }
+        //치즈에 대한 picker인 경우
+        return cheeseTypes.count
+    }
+
+    /* 각 picker에 각 데이터들 정의 */
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        // 빵에 대한 picker인 경우
+        if pickerView == pickerBread {
+            return breadTypes[row]
+        }
+        
+        // 치즈에 대한 picker인 경우
+        return cheeseTypes[row]
+    }
+    
+    /* 초기화 버튼 눌렀을 경우 */
     @IBAction func btnInitialize() {
     }
     

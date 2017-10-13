@@ -318,9 +318,13 @@
                                     <action selector="btnInitialize" destination="MIx-i6-c75" eventType="touchUpInside" id="KWr-PL-FfS"/>
                                 </connections>
                             </button>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-wl-fLe">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-wl-fLe">
                                 <rect key="frame" x="135" y="253" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MIx-i6-c75" id="AuR-gB-F4X"/>
+                                    <outlet property="delegate" destination="MIx-i6-c75" id="H7a-xY-gdo"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2단계 빵 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylb-hW-V2C">
                                 <rect key="frame" x="16" y="273" width="105" height="21"/>
@@ -329,9 +333,13 @@
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-Ip-VIK">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-Ip-VIK">
                                 <rect key="frame" x="135" y="353" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MIx-i6-c75" id="ptF-KO-uYG"/>
+                                    <outlet property="delegate" destination="MIx-i6-c75" id="NVC-G4-rxd"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3단계 치즈 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJE-RT-G3i">
                                 <rect key="frame" x="16" y="373" width="105" height="21"/>
@@ -448,6 +456,9 @@
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="7Ju-8J-gDp"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="휘핑 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I23-k5-eDE">
                                 <rect key="frame" x="16" y="477" width="105" height="21"/>
@@ -462,6 +473,9 @@
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="m6H-17-ibE"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Additional Topping" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yw4-Ze-mzT">
                                 <rect key="frame" x="135" y="516" width="224" height="30"/>
@@ -469,6 +483,9 @@
                                 <color key="textColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="qjg-6O-Kpw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbb-Rm-D6s">
                                 <rect key="frame" x="250" y="572" width="109" height="30"/>
@@ -497,13 +514,21 @@
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ub-IQK">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ub-IQK">
                                 <rect key="frame" x="135" y="357" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lXZ-D3-f79" id="Tsa-HH-qSo"/>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="WQb-Oa-Cwo"/>
+                                </connections>
                             </pickerView>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-qP-CPV">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-qP-CPV">
                                 <rect key="frame" x="135" y="296" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lXZ-D3-f79" id="KDk-zW-Md5"/>
+                                    <outlet property="delegate" destination="lXZ-D3-f79" id="n6l-8g-RRg"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시럽 선택 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgh-q7-Ygz">
                                 <rect key="frame" x="16" y="377" width="105" height="21"/>
@@ -549,7 +574,7 @@
                     <connections>
                         <outlet property="labelMenuName" destination="jWN-U9-u6T" id="pZl-2k-lrv"/>
                         <outlet property="labelRecipeName" destination="7VY-pn-elb" id="2Wd-gp-DqH"/>
-                        <outlet property="pickerCoffeeShot" destination="Nw5-qP-CPV" id="MWe-q4-KnG"/>
+                        <outlet property="pickerCoffee" destination="Nw5-qP-CPV" id="k9S-HR-KN8"/>
                         <outlet property="pickerSyrup" destination="Hex-Ub-IQK" id="z7t-0W-QoN"/>
                         <outlet property="textFieldDrizzle" destination="Yw4-Ze-mzT" id="dL0-oN-sj7"/>
                         <outlet property="textFieldMilk" destination="vXo-6C-A9d" id="k8u-qo-ePl"/>
