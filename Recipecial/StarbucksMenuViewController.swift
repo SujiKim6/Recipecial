@@ -96,23 +96,37 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        /* 다음 버튼을 눌렀을 경우 */
-        if segue.identifier == "toStarFinalRecipe" {
-            let destVC = segue.destination as! FinalRecipeViewController
-            destVC.title = "Starbucks Final Recipe"
-            
-            /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
-            destVC.labelName.text = sortedKeys[pickerStarMenu.selectedRow(inComponent: 0)] + "의 최종 레시피"
-            if let detailRecipe = labelStarDetailRecipe.text {
-                destVC.labelFinalRecipe.text = detailRecipe
+        let index = pickerStarMenu.selectedRow(inComponent: 0)
+        let key:String = sortedKeys[index]
+        
+        if labelStarDetailRecipe.text != "Detail Recipe" {
+            /* 다음 버튼을 눌렀을 경우 */
+            if segue.identifier == "toStarFinalRecipe" {
+                let destVC = segue.destination as! FinalRecipeViewController
+                destVC.title = "Starbucks Final Recipe"
+                
+                /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
+                destVC.finalRecipeName = key + "의 최종 레시피"
+                if let detailRecipe = labelStarDetailRecipe.text {
+                    destVC.finalDetailRecipe = detailRecipe
+                }
+            }
+            /* 레시피 수정 버튼을 눌럿을 경우 */
+            else {
+                let destVC = segue.destination as! UpdateStarbucksMenuViewController
+                destVC.title = "Starbucks Recipe Update"
+                
+                
             }
         }
-        /* 레시피 수정 버튼을 눌럿을 경우 */
+        /* 메뉴 선택 후 검색 하지 않고 넘겼을 경우 경고창 띄우기 */
         else {
-            let destVC = segue.destination as! UpdateStarbucksMenuViewController
-            destVC.title = "Starbucks Recipe Update"
+            let dialog = UIAlertController(title: "오류", message: "메뉴 선택 후 검색 버튼을 눌러주세요.", preferredStyle: .alert)
             
+            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            dialog.addAction(action)
             
+            self.present(dialog, animated: true, completion: nil)
         }
     }
     

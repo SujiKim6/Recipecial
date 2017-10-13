@@ -14,13 +14,15 @@ class FinalRecipeViewController: UIViewController {
     @IBOutlet var labelName: UILabel!
     
     var finalDetailRecipe:String?
+    var finalRecipeName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        if let showFinalRecipe = finalDetailRecipe {
+        if let showFinalRecipe = finalDetailRecipe, let showRecipeName = finalRecipeName {
+            labelName.text = showRecipeName
             labelFinalRecipe.text = showFinalRecipe
         }
     }

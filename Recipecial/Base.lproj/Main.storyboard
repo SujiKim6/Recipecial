@@ -306,7 +306,7 @@
                                     <color key="titleColor" red="0.027525003999471664" green="0.61339908838272095" blue="0.20378056168556213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-wl-fLe">
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjP-wl-fLe">
                                 <rect key="frame" x="135" y="253" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -317,7 +317,7 @@
                                 <color key="textColor" red="0.22731652860000001" green="0.23140507939999999" blue="0.2313860059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-Ip-VIK">
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-Ip-VIK">
                                 <rect key="frame" x="135" y="353" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -658,7 +658,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zRO-cY-cKS"/>
-        <segue reference="Jx0-kQ-aej"/>
-        <segue reference="tNF-N7-oge"/>
+        <segue reference="Hgb-qW-tJu"/>
+        <segue reference="Hpj-MD-gkA"/>
     </inferredMetricsTieBreakers>
 </document>
