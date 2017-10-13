@@ -24,17 +24,16 @@ class ViewController: UIViewController {
         /* 코어 데이터에 기존 추천 레시피 코어데이터에 저장 */
         // 처음 어플 실행시 한번 실행 후 주석 처리하기. 중복으로 들어가는 것을 방지하기 위함.
         let context = self.getContext()
-//        let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
-        let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
-        let newRecipes = NSManagedObject(entity: entity!, insertInto: context)
         
         for i in 0..<subRecipeName.count {
-            newRecipes.setValue("Subway", forKey: "brand")
-            newRecipes.setValue(subRecipeName[i], forKey: "menuName")
-            newRecipes.setValue(subDetailRecipe[i], forKey: "detailMenu")
             do {
+                let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
+                newRecipes.setValue("Subway", forKey: "brand")
+                newRecipes.setValue(subRecipeName[i], forKey: "menuName")
+                newRecipes.setValue(subDetailRecipe[i], forKey: "detailMenu")
+
                 try context.save()
-                print("Success Saving")
+                print("Success Saving1")
             }
             catch {
                 //Error 발생시
@@ -43,12 +42,14 @@ class ViewController: UIViewController {
         }
         
         for i in 0..<starRecipeName.count {
-            newRecipes.setValue("Starbucks", forKey: "brand")
-            newRecipes.setValue(starRecipeName[i], forKey: "menuName")
-            newRecipes.setValue(starDetailRecipe[i], forKey: "detailMenu")
             do {
+                let newRecipes = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: context)
+                newRecipes.setValue("Starbucks", forKey: "brand")
+                newRecipes.setValue(starRecipeName[i], forKey: "menuName")
+                newRecipes.setValue(starDetailRecipe[i], forKey: "detailMenu")
+                
                 try context.save()
-                print("Success Saving")
+                print("Success Saving1")
             }
             catch {
                 //Error 발생시

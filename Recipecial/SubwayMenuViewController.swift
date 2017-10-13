@@ -29,7 +29,7 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         do {
             let results = try context.fetch(request)
-            
+            print(results.count)
             for menuList in results as! [NSManagedObject] {
                 if let brandName = menuList.value(forKey: "brand") as? String,
                     let recipeName = menuList.value(forKey: "menuName") as? String,

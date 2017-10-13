@@ -47,19 +47,16 @@ class AddToppingViewController: UIViewController, UITextFieldDelegate {
     
     /* segue에 따른 처리 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! FinalRecipeViewController
         if segue.identifier == "toAddFinal" {
-            let destVC = segue.destination as! FinalRecipeViewController
             
             // 선택된 레시피에 대한 레시피 전달 받고 그에 대한 추가된 토핑 넣어서 전달
             if let originalRecipe = selectedRecipeDetail {
-                var sendRecipe:String = originalRecipe
-                sendRecipe += " + "
-                sendRecipe += textFieldTopping.text!
+                let sendRecipe:String = originalRecipe + " + " + textFieldTopping.text!
                 destVC.finalDetailRecipe = sendRecipe
             }
         }
         else {
-            let destVC = segue.destination as! FinalRecipeViewController
 
             if let originalRecipe = selectedRecipeDetail {
                 destVC.finalDetailRecipe = originalRecipe
