@@ -60,6 +60,16 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         textFieldWhipping.text = forDefault[3]
         textFieldDrizzle.text = forDefault[4]
         textFieldEtc.text = forDefault[5]
+        
+        /* 키보드 delegata & 키보드 화면에 따라 이동시키기 위한 함수 */
+        textFieldSyrup.delegate = self
+        textFieldMilk.delegate = self
+        textFieldWhipping.delegate = self
+        textFieldDrizzle.delegate = self
+        textFieldEtc.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +92,16 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    /* 키보드가 올라왔을 때 -> 화면 위로 올리기 */
+    func keyboardWillShow(_ sender: Notification) {
+        
+        self.view.frame.origin.y = -150 // Move view 150 points upward
+        
+    }
+    /* 키보드가 내려갔을 때 -> 화면 다시 제위치 */
+    func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0 // Move view to original position
     }
     
     /* 커피에 대한 picker는 두개의 component로 이루어지므로 2리턴 */
