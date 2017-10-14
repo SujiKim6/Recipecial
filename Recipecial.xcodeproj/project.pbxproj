@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD1ABF951F9287AC00964902 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1ABF941F9287AC00964902 /* appIcon.png */; };
 		FD4D0ABA1F90C651004DD428 /* UpdateStarbucksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D0AB91F90C651004DD428 /* UpdateStarbucksMenuViewController.swift */; };
 		FD4D0ABC1F90C668004DD428 /* UpdateSubwayMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D0ABB1F90C668004DD428 /* UpdateSubwayMenuViewController.swift */; };
 		FDB8BF611F8F8B2400B2099B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8BF601F8F8B2400B2099B /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD1ABF941F9287AC00964902 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		FD4D0AB91F90C651004DD428 /* UpdateStarbucksMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateStarbucksMenuViewController.swift; sourceTree = "<group>"; };
 		FD4D0ABB1F90C668004DD428 /* UpdateSubwayMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSubwayMenuViewController.swift; sourceTree = "<group>"; };
 		FDB8BF5D1F8F8B2400B2099B /* Recipecial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipecial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 		FDB8BF5F1F8F8B2400B2099B /* Recipecial */ = {
 			isa = PBXGroup;
 			children = (
+				FD1ABF941F9287AC00964902 /* appIcon.png */,
 				FDB8BF751F8F8B6700B2099B /* Starbucks_logo.png */,
 				FDB8BF761F8F8B6700B2099B /* Subway_logo.png */,
 				FDB8BF601F8F8B2400B2099B /* AppDelegate.swift */,
@@ -152,6 +155,7 @@
 			files = (
 				FDB8BF6E1F8F8B2400B2099B /* LaunchScreen.storyboard in Resources */,
 				FDB8BF6B1F8F8B2400B2099B /* Assets.xcassets in Resources */,
+				FD1ABF951F9287AC00964902 /* appIcon.png in Resources */,
 				FDB8BF661F8F8B2400B2099B /* Main.storyboard in Resources */,
 				FDB8BF781F8F8B6700B2099B /* Subway_logo.png in Resources */,
 				FDB8BF771F8F8B6700B2099B /* Starbucks_logo.png in Resources */,
