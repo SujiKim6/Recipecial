@@ -135,7 +135,7 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                 }
             }
         }
-        /* 메뉴 선택 후 검색 하지 않고 넘겼을 경우 경고창 띄우기 */
+        /* 메뉴 선택 후 검색 하지 않고 버튼을 눌렀을 경우 경고창 띄우기 */
         else {
             let dialog = UIAlertController(title: "오류", message: "메뉴 선택 후 검색 버튼을 눌러주세요.", preferredStyle: .alert)
             
