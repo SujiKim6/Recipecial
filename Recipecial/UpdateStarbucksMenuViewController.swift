@@ -29,6 +29,8 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        /* 화면에 레시피 이름과 메뉴에 대한 상세레시피를 default로 넣어주기 */
         if let recipe = recipeName {
             labelRecipeName.text = recipe
         }
@@ -41,6 +43,7 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
             forDefault.append(seperate[1])
         }
         
+        // 각 부분에 default값 넣어주기 
         // 커피에 대한 picker는 component가 2개이므로 띄어쓰기로 분리한다.
         var coffee = forDefault[0].components(separatedBy: " ")
         for i in 0..<coffeeTypes.count { // 커피 샷의 종류
@@ -61,6 +64,7 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         textFieldDrizzle.text = forDefault[4]
         textFieldEtc.text = forDefault[5]
         
+        
         /* 키보드 delegata & 키보드 화면에 따라 이동시키기 위한 함수 */
         textFieldSyrup.delegate = self
         textFieldMilk.delegate = self
@@ -68,7 +72,6 @@ class UpdateStarbucksMenuViewController: UIViewController, UITextFieldDelegate, 
         textFieldDrizzle.delegate = self
         textFieldEtc.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     

@@ -29,20 +29,17 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
         do {
             let results = try context.fetch(request)
             
-            if results.count > 0 {
-                for menuList in results as! [NSManagedObject] {
-                    if let brandName = menuList.value(forKey: "brand") as? String,
-                        let recipeName = menuList.value(forKey: "menuName") as? String,
-                        let detailRecipe = menuList.value(forKey: "detailMenu") as? String
-                    {
-                        if brandName == "Starbucks" {
-                            starMenuDictionary[recipeName] = detailRecipe
-                        }
+            for menuList in results as! [NSManagedObject] {
+                if let brandName = menuList.value(forKey: "brand") as? String,
+                    let recipeName = menuList.value(forKey: "menuName") as? String,
+                    let detailRecipe = menuList.value(forKey: "detailMenu") as? String
+                {
+                    if brandName == "Starbucks" {
+                        starMenuDictionary[recipeName] = detailRecipe
                     }
                 }
             }
-            
-            //            print(starMenuDictionary)
+//            print(starMenuDictionary)
         } catch {
             print("Find error")
         }
@@ -106,23 +103,35 @@ class StarbucksMenuViewController: UIViewController, UIPickerViewDelegate, UIPic
                 destVC.title = "Starbucks Final Recipe"
                 
                 /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
-                destVC.finalRecipeName = key + "의 최종 레시피"
+                destVC.finalRecipeName = key
                 if let detailRecipe = labelStarDetailRecipe.text {
                     destVC.finalDetailRecipe = detailRecipe
                 }
             }
             /* 레시피 수정 버튼을 눌럿을 경우 -> 레시피이름 넘겨주기*/
             else {
-                let destVC = segue.destination as! UpdateStarbucksMenuViewController
-                destVC.title = "Starbucks Recipe Update"
-                
-                destVC.recipeName = key
-                
-                /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
-                var setDefault = starMenuDictionary[key]!.components(separatedBy: "\n")
-                destVC.menuName = setDefault[0]
-                for i in 1..<setDefault.count {
-                    destVC.detailRecipe.append(setDefault[i])
+                /* 메뉴를 다시 피커에서 선택 후 검색을 누르지 않고 레시피 수정 버튼을 눌렀을 경우 -> 경고창 띄우기 */
+                if labelStarDetailRecipe.text != starMenuDictionary[key] {
+                    let dialog = UIAlertController(title: "오류", message: "메뉴 선택 후 다시 검색 버튼을 눌러주세요.", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                    dialog.addAction(action)
+                    
+                    self.present(dialog, animated: true, completion: nil)
+                }
+                    /* 메뉴를 다시 선택후 검색 버튼을 누른 다음에 레시피 수정 버튼을 눌렀을 경우 -> 내용넘겨주기 */
+                else {
+                    let destVC = segue.destination as! UpdateStarbucksMenuViewController
+                    destVC.title = "Starbucks Recipe Update"
+                    
+                    destVC.recipeName = key
+                    
+                    /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
+                    var setDefault = starMenuDictionary[key]!.components(separatedBy: "\n")
+                    destVC.menuName = setDefault[0]
+                    for i in 1..<setDefault.count {
+                        destVC.detailRecipe.append(setDefault[i])
+                    }
                 }
             }
         }

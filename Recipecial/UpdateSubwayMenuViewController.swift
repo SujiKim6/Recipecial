@@ -38,7 +38,7 @@ class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate, UIP
             var seperate = detailRecipe[i].components(separatedBy: ":")
             forDefault.append(seperate[1])
         }
-        
+        // 각 부분에 default값 넣어주기 
         for i in 0..<breadTypes.count {
             if forDefault[0] == breadTypes[i] {
                 pickerBread.selectRow(i, inComponent: 0, animated: false)
@@ -59,12 +59,12 @@ class UpdateSubwayMenuViewController: UIViewController, UITextFieldDelegate, UIP
         textFieldVeget.text = forDefault[4]
         textFieldSauce.text = forDefault[5]
         
+        
         /* 키보드 delegata & 키보드 화면에 따라 이동시키기 위한 함수 */
         textFieldAdditional.delegate = self
         textFieldVeget.delegate = self
         textFieldSauce.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     

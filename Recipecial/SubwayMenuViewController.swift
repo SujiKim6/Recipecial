@@ -103,22 +103,34 @@ class SubwayMenuViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 destVC.title = "Subway Final Recipe"
                 
                 /* 최종 레시피에 레시피명 및 내용 넘겨주기 */
-                destVC.finalRecipeName = key + "의 최종 레시피"
+                destVC.finalRecipeName = key
                 if let detailRecipe = labelSubDetailRecipe.text {
                     destVC.finalDetailRecipe = detailRecipe
                 }
             }
                 /* 레시피 수정 버튼을 눌렀을 경우 */
             else {
-                let destVC = segue.destination as! UpdateSubwayMenuViewController
-                destVC.title = "Subway Recipe Update"
-                
-                destVC.menuName = key
-                
-                /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
-                var setDefault = subMenuDictionary[key]!.components(separatedBy: "\n")
-                for i in 0..<setDefault.count {
-                    destVC.detailRecipe.append(setDefault[i])
+                /* 메뉴를 다시 피커에서 선택 후 검색을 누르지 않고 레시피 수정 버튼을 눌렀을 경우 ->경고창 띄우기 */
+                if labelSubDetailRecipe.text != subMenuDictionary[key] {
+                    let dialog = UIAlertController(title: "오류", message: "메뉴 선택 후 다시 검색 버튼을 눌러주세요.", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                    dialog.addAction(action)
+                    
+                    self.present(dialog, animated: true, completion: nil)
+                }
+                    /* 메뉴를 다시 선택후 검색 버튼을 누른 다음에 레시피 수정 버튼을 눌렀을 경우 -> 내용 넘겨주기 */
+                else {
+                    let destVC = segue.destination as! UpdateSubwayMenuViewController
+                    destVC.title = "Subway Recipe Update"
+                    
+                    destVC.menuName = key
+                    
+                    /* update Scene에서 기존 레시피에 대한 레시피 상세내용을 default로 정해주기 위해 줄바꿈으로 분리해서 전달 */
+                    var setDefault = subMenuDictionary[key]!.components(separatedBy: "\n")
+                    for i in 0..<setDefault.count {
+                        destVC.detailRecipe.append(setDefault[i])
+                    }
                 }
             }
         }

@@ -53,7 +53,7 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
     /* segue에 따른 처리, 넘어가는 화면에 내용 넘겨주기 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        /* text field를 다 입력하지 않았을 경우 */
+        /* text field를 다 입력하지 않았을 경우 -> 경고창 띄우기 */
         if textFieldNewName.text == "" {
             let dialog = UIAlertController(title: "오류", message: "새로운 이름을 입력해주세요.", preferredStyle: .alert)
             
@@ -80,6 +80,7 @@ class AddNewRecipeViewController: UIViewController, UITextFieldDelegate {
                 //Error 발생시
                 print("Fail Saving")
             }
+            /* 최종레시피 화면으로 돌아갈 때, 내용 전달하기 */
             if segue.identifier == "toNewNameFinal" {
                 let destVC = segue.destination as! FinalRecipeViewController
                 destVC.finalRecipeName = textFieldNewName.text
